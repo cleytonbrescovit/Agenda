@@ -6,6 +6,7 @@ import java.text.*;
 import java.util.Calendar;
 import java.util.Date;
 
+import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -19,7 +20,20 @@ import Model.Contato;
 
 @WebServlet("/adicionaContato")
 public class AdicionaContato extends HttpServlet {
+	private int contador = 0;
+	
+	public void init(ServletConfig config) throws ServletException {
+		super.init(config);
+		log("Iniciando Servlet.");
+	}
+	
+	public void destroy(){
+		super.destroy();
+		log("Destruindo Servlet.");
+	}	
+	
     protected void service(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+    	contador++;
                         
         PrintWriter out = response.getWriter();
                         
@@ -50,7 +64,8 @@ public class AdicionaContato extends HttpServlet {
         
         out.println("<html>");
         out.println("<body>");
-        out.println("Contato " + contato.getNome() + " adicionado com sucesso");    
+        out.println("Contato " + contato.getNome() + " adicionado com sucesso");
+        out.println("contador agora é: " + contador);
         out.println("</body>");
         out.println("</html>");
 		
