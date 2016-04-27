@@ -6,6 +6,7 @@ import java.text.*;
 import java.util.Calendar;
 import java.util.Date;
 
+
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -17,6 +18,7 @@ import com.sun.org.apache.xerces.internal.impl.xpath.regex.ParseException;
 
 import Dao.ContatoDao;
 import Model.Contato;
+
 
 @WebServlet("/adicionaContato")
 public class AdicionaContato extends HttpServlet {
@@ -34,7 +36,7 @@ public class AdicionaContato extends HttpServlet {
 	
     protected void service(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
     	contador++;
-                        
+    	
         PrintWriter out = response.getWriter();
                         
         String nome = request.getParameter("nome");
